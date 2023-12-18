@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple File Upload</title>
+  </head>
+  <body>
+    <div style="padding:40px;margin:40px;border:1px solid #ccc">
+        <h1>Django File Upload</h1>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit</button>
+        </form><hr>
+        <ul>
+        {% for document in documents %}
+            <li>
+                <a href="{{ document.upload_file.url }}">{{ document.upload_file.name }}</a>
+                <small>({{ document.upload_file.size|filesizeformat }})</small>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="/upload/model">Upload a Model</a>
+    </div>
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="/upload/csv">Upload a test CSV</a>
+    </div>
+
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="/upload/train">Upload a train CSV</a>
+    </div>
+  </body>
+</html>
