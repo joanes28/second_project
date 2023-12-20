@@ -23,8 +23,8 @@ from explainable import views as explainable_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("explainable/", include("explainable.urls")),
-    path('upload/csv', explainable_views.UploadViewCSV.as_view(), name='fileupload'),
-    path('upload/model', explainable_views.UploadViewMOD.as_view(), name='fileupload'),
-    path('upload/train', explainable_views.UploadViewTrain.as_view(), name='fileupload'),
+    path('upload/csv', explainable_views.UploadViewCSV.as_view(), name='testupload'),
+    path('upload/model', explainable_views.UploadViewMOD.as_view(), name='modelupload'),
+    path('upload/train', explainable_views.UploadViewTrain.as_view(), name='trainupload')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

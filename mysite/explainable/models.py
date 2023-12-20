@@ -42,5 +42,5 @@ class UploadMOD(models.Model):
     upload_date = models.DateTimeField(auto_now_add =True)
 
 class UploadTrain(models.Model):
-    upload_file = models.FileField("Only train CSV files", upload_to=uploadtrain, validators = [valCSV])    
+    upload_file = models.FileField("Only upload CSV files", upload_to=uploadtrain, validators = [valCSV])    
     upload_date = models.DateTimeField(auto_now_add =True)

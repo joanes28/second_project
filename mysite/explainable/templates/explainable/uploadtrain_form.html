@@ -1,12 +1,20 @@
 <!DOCTYPE html>
+#{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Simple File Upload</title>
+    <title>Train</title>
   </head>
   <body>
     <div style="padding:40px;margin:40px;border:1px solid #ccc">
-        <h1>Django File Upload</h1>
+        <h1>Upload train CSV</h1>
         <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ form.as_p }}
@@ -31,6 +39,19 @@
 
     <div style="" class="button-box" >
       <a class="btn btn-primary" href="/upload/train">Upload a train CSV</a>
+    </div>
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="{% url 'performance' %}">Performance metrics</a>
+    </div>
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="{% url 'enviromental' %}">Enviromental</a>
+    </div>
+
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="{% url 'ethical' %}">Ethical approaches</a>
+    </div>
+    <div style="" class="button-box" >
+      <a class="btn btn-primary" href="{% url 'bias' %}">Feature importance</a>
     </div>
   </body>
 </html>

@@ -6,30 +6,21 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
-
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Model</title>
+    <title></title>
   </head>
   <body>
-    <div style="padding:40px;margin:40px;border:1px solid #ccc">
-        <h1>Upload the model</h1>
-        <form method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Submit</button>
-        </form><hr>
-        <ul>
-        {% for document in documents %}
-            <li>
-                <a href="{{ document.upload_file.url }}">{{ document.upload_file.name }}</a>
-                <small>({{ document.upload_file.size|filesizeformat }})</small>
-            </li>
-        {% endfor %}
-        </ul>
-    </div>
-
+    <ul class="list_group">
+    {% for key, value in content.items %}
+        <li class="list-group-item">
+            <a >{{key}} : {{value}}</a>
+        </li class="list-group-item">
+    {% endfor %}
+    
+  </ul class="list_group">
+    {% buttons %}
     <div style="" class="button-box" >
       <a class="btn btn-primary" href="/upload/model">Upload a Model</a>
     </div>
@@ -53,5 +44,6 @@
     <div style="" class="button-box" >
       <a class="btn btn-primary" href="{% url 'bias' %}">Feature importance</a>
     </div>
+    {% endbuttons %}
   </body>
 </html>
